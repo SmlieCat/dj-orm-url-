@@ -1,0 +1,59 @@
+<aside class="col-md-4">
+
+    <div class="widget widget-recent-posts">
+        <h3 class="widget-title">最新文章</h3>
+        <ul>
+            {% for articles in article_list %}
+            <li>
+                <a href="{% url 'article_detail' id=articles.id %}">{{ articles.title }}</a>
+            </li>
+            {% empty %}
+            暂无文章！
+            {% endfor %}
+
+        </ul>
+    </div>
+    <div class="widget widget-archives">
+        <h3 class="widget-title">归档</h3>
+        <ul>
+            {% for date in date_list %}
+            <li>
+                <a href="{% url 'article_archives' year=date.year month=date.month %}">{{ date.year }}&nbsp;年&nbsp;{{ date.month }}&nbsp;月</a>
+            </li>
+            {% empty %}
+            暂无归档！
+            {% endfor %}
+
+        </ul>
+    </div>
+
+    <div class="widget widget-category">
+        <h3 class="widget-title">分类</h3>
+        <ul>
+            {% for category in categorys %}
+            <li>
+                <a href="{% url 'article_category' id=category.id %}">{{category.name}}<span class="post-count">({{category.num_posts}})</span></a>
+            </li>
+            {% empty %}
+            暂无分类！
+            {% endfor %}
+
+        </ul>
+    </div>
+
+    <div class="widget widget-tag-cloud">
+        <h3 class="widget-title">标签云</h3>
+        <ul>
+            {% for tag in tags %}
+            <li>
+                <a href="{% url 'article_tag' id=tag.id %}">{{ tag }}</a>
+            </li>
+            {% empty %}
+            暂无标签！
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="rss">
+        
+    </div>
+</aside>

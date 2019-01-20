@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% include 'flash_message.html' %}
+{% include 'user_menu.html' %}
+    <div >
+
+        <div class="col-md-10" >
+
+            <div class="jumbotron" style="padding-top: 1px">
+              <h3>注销个人账户</h3>
+             <hr >
+
+             <form role="form"  method="post" >
+
+                 <div class="form_group">
+                     密码:
+                     {{ form.user_password }}
+                 </div>
+
+                 <div class="form_group">
+                     {% csrf_token %}
+                    <button type="submit" class="btn btn-primary">修改</button>
+                 </div>
+
+             </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block js_code %}
+<script type="text/javascript">
+    $(document).ready(
+      function(){
+      }
+    );
+    $('#item_4').addClass('list-group-item-warning')
+
+</script>
+{% endblock %}

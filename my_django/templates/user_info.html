@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% include 'flash_message.html' %}
+{% include 'user_menu.html' %}
+
+    <div >
+        <div class="col-md-10" >
+            <div class="jumbotron" style="padding-top: 1px">
+              <h3 >修改个人资料</h3>
+             <hr>
+
+              <form method="post" role="form" enctype="multipart/form-data">
+
+                  <div class="form_group">
+                      用户名:
+                      {{ form.user_name }}
+
+                  </div>
+
+                  <div class="form_group">
+                      邮箱:
+                      {{ form.user_email }}
+
+                  </div>
+                  <div class="form_group">
+                      联系方式:
+                      {{ form.user_phone }}
+
+                  </div>
+                  <div class="form_group">
+                      签名:
+                      {{ form.user_desc }}
+
+                  </div>
+
+                  <div class="form_group">
+                       {% csrf_token %}
+                      <button type="submit" class="btn btn-primary">修改</button>
+
+                  </div>
+              </form>
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block js_code %}
+<script type="text/javascript">
+    $(document).ready(
+      function(){
+      }
+    );
+    $('#item_3').addClass('list-group-item-warning')
+
+</script>
+{% endblock %}

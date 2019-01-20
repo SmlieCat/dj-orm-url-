@@ -1,0 +1,119 @@
+
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block css_style %}
+<link href="{% static 'custom/custom.css' %}" rel="stylesheet" >
+{% endblock %}
+
+
+{% block content %}
+
+
+ <div class="container">
+     <div class="col-md-8">
+         <h2 class="news-title " style="margin-top:10px">
+             标题
+         </h2>
+         <div class="news-status small class">
+             <span>
+
+                时间:
+            </span>
+             <span>/作者:</span>
+             <span>/浏览量:</span>
+             <span>/收藏量:</span>
+
+             <div id="btn-favor" class="btn btn-default btn-xs">
+                 <span class="glyphicon glyphicon-heart"></span>
+                 收藏
+             </div>
+         </div>
+
+         <div class="news-content">
+            <blockquote >
+                <p>
+                    相册介绍
+                </p>
+            </blockquote>
+            <div>
+
+                <img class="img-responsive" src="http://wx2.sinaimg.cn/large/0062Ep7ely1fz66ixkuw0j31hc0u0e81.jpg" >
+
+            </div>
+         </div>
+
+     </div>
+
+
+     <div class="col-md-4 visible-md-block visible-lg-block">
+         <div class="side-bar-card">
+             <div class="card-title">相关推荐</div>
+             <div class="card-body">
+                 <div class="list">
+
+                     <div class="item clearfix">
+                         <div class="col-xs-5 no-padding-h">
+                             <a href="#">
+                                 <!-- style -->
+                                 <div class="hovereffecttitle">
+                                 <img src="http://wx2.sinaimg.cn/large/0062Ep7ely1fz66ixkuw0j31hc0u0e81.jpg">
+                                </div>
+                              </a>
+                         </div>
+                         <div class="col-xs-7 ">
+                            <a href="#">
+                                <div class="title">标题</div>
+                                <div class="desc">
+                                    浏览
+                                    收藏</div>
+                            </a>
+                         </div>
+                     </div>
+
+
+                 </div>
+             </div>
+         </div>
+         <div class="side-bar-card">
+            {% if request.session.user_name %}
+             <div class="card-title">我的收藏</div>
+             <div class="card-body">
+                 {% else %}
+                 <a href=""><div class="card-title">我的收藏</div>
+                 <div class="card-body"></a>
+                 {% endif %}
+                 {% if request.session.user_name %}
+                 <div class="list">
+
+                     <div class="item clearfix">
+                         <div class="col-xs-5 no-padding-h">
+                             <a href="#">
+                            <!-- style -->
+                             <div class="hovereffecttitle">
+                                 <img src="http://wx2.sinaimg.cn/large/0062Ep7ely1fz66ixkuw0j31hc0u0e81.jpg">
+                             </div>
+                              </a>
+                         </div>
+                         <div class="col-xs-7 ">
+                            <a href="#">
+                                <div class="title">标题</div>
+                                <div class="desc">浏览
+                                    收藏</div>
+                            </a>
+                         </div>
+                     </div>
+
+                 </div>
+                 {% endif %}
+
+             </div>
+         </div>
+
+     </div>
+ </div>
+
+
+
+{% endblock %}

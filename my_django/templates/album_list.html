@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="content-body">
+    <div class="container">
+        <div class="row">
+            <main class="col-md-8">
+
+
+                <article class="post post-1">
+                    <header class="entry-header">
+                        <h1 class="entry-title">
+                            <a href="{% url 'album_browse' %}">标题</a>
+                        </h1>
+                        <div class="entry-meta">
+                            <span class="post-category"><a href="#">分类</a></span>
+                            <span class="post-date"><a href="#"><time class="entry-date"
+                                                                      datetime="">时间</time></a></span>
+                            <span class="post-author"><a href="#">作者</a></span>
+                            <span class="comments-link"><a href="#">4 评论</a></span>
+                            <span class="views-count"><a href="#">多少 阅读</a></span>
+                        </div>
+                    </header>
+                    <div class="entry-content clearfix">
+                        <div class="hovereffect">
+                            <a href="#">
+                                <img src="http://wx2.sinaimg.cn/large/0062Ep7ely1fz66ixkuw0j31hc0u0e81.jpg"  class="img-thumbnail" >
+                            </a>
+
+                        </div>
+
+                    </div>
+                </article>
+
+
+            </main>
+
+        {% include "album_menu.html" %}
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block js_code %}
+<script type="text/javascript">
+    $(document).ready(
+      function(){
+      }
+    );
+    $('#nav-6').addClass('active')
+
+</script>
+{% endblock %}

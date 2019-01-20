@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% include 'flash_message.html' %}
+<br>
+    <form method="post" role="form" class="col-md-6 col-md-offset-3"
+        enctype="multipart/form-data">
+
+        <div class="form_group">
+            <strong>用户名:</strong>{{ form.user_name }}
+        </div>
+        <div class="form_group">
+            <strong>密码:</strong>{{ form.user_password }}
+        </div>
+        <div class="form_group">
+            <strong>确认密码:</strong>
+            {{ form.user_password2 }}
+        </div>
+        <div class="form_group">
+        邮箱:
+        {{ form.user_email }}
+        </div>
+        <div class="form_group">
+        联系方式:
+        {{ form.user_phone }}
+        </div>
+        <div class="form_group">
+        签名:
+        {{ form.user_desc }}
+        </div>
+        <br>
+        <div class="form_group">
+             {% csrf_token %}
+            <button type="submit" class="btn btn-success">注册</button>
+
+        </div>
+
+    </form>
+
+{% endblock %}
+{% block js_code %}
+<script type="text/javascript">
+    $(document).ready(
+      function(){
+      }
+    );
+    $('#nav-5').addClass('active')
+
+</script>
+{% endblock %}

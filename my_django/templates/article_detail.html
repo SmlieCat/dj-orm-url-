@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+
+<div class="content-body">
+    <div class="container">
+        <div class="row">
+            <main class="col-md-8">
+                <article class="post post-1">
+                    <header class="entry-header">
+                        <h1 class="entry-title">{{ article.title }}</h1>
+                        <div class="entry-meta">
+                            <span class="post-category"><a href="#">{{article.category}}</a></span>
+                            <span class="post-date"><a href="#"><time class="entry-date"
+                                                                      datetime="{{article.created_time}}">{{article.created_time}}</time></a></span>
+                            <span class="post-author"><a href="#">{{article.author}}</a></span>
+                            <span class="comments-link"><a href="#">4 评论</a></span>
+                            <span class="views-count"><a href="#">{{article.click_num}} 阅读</a></span>
+                        </div>
+                    </header>
+                    <div class="entry-content clearfix">
+                        {{article.body|safe}}
+                    </div>
+                </article>
+
+                <section class="comment-area" id="comment-area">
+                    <hr>
+                    <h3>发表评论</h3>
+                    <form action="#" method="post" class="comment-form">
+
+                    </form>
+                    <div class="comment-list-panel">
+                        <h3>评论列表，共 <span>4</span> 条评论</h3>
+                        <ul class="comment-list list-unstyled">
+                            <li class="comment-item">
+                                <span class="nickname">追梦人物</span>
+                                <time class="submit-date" datetime="2012-11-09T23:15:57+00:00">2017年3月12日 14:56</time>
+                                <div class="text">
+                                    文章观点又有道理又符合人性，这才是真正为了表达观点而写，不是为了迎合某某知名人士粉丝而写。我觉得如果琼瑶是前妻，生了三孩子后被一不知名的女人挖了墙角，我不信谁会说那个女人是追求真爱，说同情琼瑶骂小三的女人都是弱者。
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                </section>
+            </main>
+
+    {% include "article_menu.html" %}
+
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block js_code %}
+<script type="text/javascript">
+    $(document).ready(
+      function(){
+      }
+    );
+    $('#nav-7').addClass('active')
+
+</script>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% include 'flash_message.html' %}
+<br><br>
+<form method="post" role="form" class="col-md-6 col-md-offset-3">
+    {% if errmsg %}
+    <p style="color: red">{{ errmsg }}</p>
+    {% endif %}
+    <div class="form_group">
+        <strong>用户名:</strong>
+        {{ form.user_name }}
+    </div>
+    <div class="form_group">
+        <strong>密码:</strong>
+        {{ form.user_password }}
+    </div>
+<br>
+<div class="form_group">
+     {% csrf_token %}
+    <button type="submit" class="btn btn-success">登录</button>
+
+</div>
+
+</form>
+
+{% endblock %}
+
+{% block js_code %}
+<script type="text/javascript">
+    $(document).ready(
+      function(){
+      }
+    );
+    $('#nav-4').addClass('active')
+
+</script>
+{% endblock %}
